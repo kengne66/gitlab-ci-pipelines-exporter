@@ -9,7 +9,8 @@ image:
 service:
   type: ClusterIP
   port: 80
-  annotations: {}
+  annotations:
+    prometheus.io/scrape: "true"
   labels: {}
 
 ## Resources to allocate to the pods
