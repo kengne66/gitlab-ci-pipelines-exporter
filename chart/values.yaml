@@ -83,9 +83,13 @@ config:
   refs_polling_interval_seconds: 5                  # Interval in seconds to fetch refs from projects
   pipelines_polling_interval_seconds: 10            # Interval in seconds to get new pipelines from refs (exponentially backing of to maximum value)
   pipelines_max_polling_interval_seconds: 1800      # Maximum interval in seconds to fetch new pipelines from refs
-  projects: []
+  projects:
+    - name: tim/quant
+      refs: ".*"
+    - name: justin/boxomon
+      refs: ".*"
   wildcards:
-    - refs: '.*'
+    - refs: '^master$'
 
 ## Environment variables for the container
 ##
