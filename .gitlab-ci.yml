@@ -6,7 +6,7 @@ stages:
 
 helm-deploy-gke-west1-b:
   stage: deploy-helm
-  image: lachlanevenson/k8s-helm:v2.15.0
+  image: lachlanevenson/k8s-helm:$HELM3_IMAGE_VERSION
   retry:
     max: 2
     when:

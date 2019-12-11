@@ -10,7 +10,7 @@ service:
   type: ClusterIP
   port: 80
   annotations:
-    prometheus.io/scrape: "true"
+    gitlab.com/prometheus_scrape: "true"
   labels: {}
 
 ## Resources to allocate to the pods
