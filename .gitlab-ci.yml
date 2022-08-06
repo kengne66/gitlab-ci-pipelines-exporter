@@ -14,10 +14,8 @@ helm-deploy-gke-west1-b:
       - unknown_failure
       - script_failure
   script:
-    - helm init --client-only
-    - helm repo update
     - sed "s/__GITLAB_CI_EXPORTER_TOKEN__/${GITLAB_CI_EXPORTER_TOKEN}/g" ./chart/values.yaml > values.yaml
-    - helm upgrade --install gitlab-ci-exporter ./chart --timeout 600 --namespace gitlab --values values.yaml
+    - helm upgrade --install gitlab-ci-exporter ./chart --timeout 600s --namespace gitlab --values values.yaml
   only:
     - master
   tags:
