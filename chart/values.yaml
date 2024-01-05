@@ -1,0 +1,100 @@
+---
+replicas: 1
+
+image:
+  repository: mvisonneau/gitlab-ci-pipelines-exporter
+  pullPolicy: IfNotPresent
+  # tag: <default to chart version>
+
+service:
+  type: NodePort
+  port: 80
+  annotations:
+    gitlab.com/prometheus_scrape: "true"
+  labels: {}
+
+## Resources to allocate to the pods
+##
+resources: {}
+ # limits:
+ #   cpu: 40m
+ #   memory: 64Mi
+ # requests:
+ #   cpu: 40m
+ #   memory: 64Mi
+
+## Deployment strategy
+##
+strategy:
+  type: RollingUpdate
+
+## Liveness and Readiness probes
+##
+livenessProbe:
+  httpGet:
+    path: /health/live
+    port: 8080
+
+readinessProbe:
+  httpGet:
+    path: /health/ready
+    port: 8080
+  initialDelaySeconds: 5
+  timeoutSeconds: 5
+  failureThreshold: 3
+  periodSeconds: 30
+
+## Node labels for pod assignment
+## ref: https://kubernetes.io/docs/user-guide/node-selection/
+#
+nodeSelector: {}
+
+## Tolerations for pod assignment
+## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+##
+tolerations: []
+
+## Affinity for pod assignment
+## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+##
+affinity: {}
+
+## Set the security context of the pods
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context
+##
+securityContext:
+  # runAsUser: 65534  # run as nobody user
+
+## Arguments for the exporter binary
+##
+args:
+  - --config
+  - /etc/config.yml
+  - --log-format
+  - json
+
+## Actual configuration of the exporter
+##
+config:
+  gitlab:
+    url: https://gitlab.palpant.us
+    token: __GITLAB_CI_EXPORTER_TOKEN__
+  projects_polling_interval_seconds: 300            # Interval in seconds at which to poll projects from wildcards
+  refs_polling_interval_seconds: 300                # Interval in seconds to fetch refs from projects
+  pipelines_polling_interval_seconds: 300           # Interval in seconds to get new pipelines from refs (exponentially backing of to maximum value)
+  pipelines_max_polling_interval_seconds: 1800      # Maximum interval in seconds to fetch new pipelines from refs
+  projects:
+    - name: tim/quant
+      refs: ".*"
+    - name: justin/boxomon
+      refs: ".*"
+  wildcards:
+    - refs: '^master$'
+
+## Environment variables for the container
+##
+envVariables: []
+  # - name: GCPE_LOG_FORMAT
+  #   value: json
+  # - name: GCPE_LOG_LEVEL
+  #   value: debug
