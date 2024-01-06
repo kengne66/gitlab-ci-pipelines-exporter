@@ -133,8 +133,8 @@ config:
     token: UveGckuJHmAzcVfyYff2
   #   enable_health_check: true
   #   enable_tls_verify: true
-  projects:
-    - name: foo/project
+  #projects:
+  #  - name: foo/project
   #   - name: bar/project
   # wildcards:
   #   - owner:
