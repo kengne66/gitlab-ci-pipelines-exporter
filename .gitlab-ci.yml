@@ -1,0 +1,24 @@
+variables:
+  GOOGLE_APPLICATION_CREDENTIALS: /secret/keyfile.json
+
+stages:
+  - deploy-helm
+
+helm-deploy-gke-west1-b:
+  stage: deploy-helm
+  image: lachlanevenson/k8s-helm:$HELM3_IMAGE_VERSION
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - unknown_failure
+      - script_failure
+  script:
+    - sed "s/__GITLAB_CI_EXPORTER_TOKEN__/${GITLAB_CI_EXPORTER_TOKEN}/g" ./chart/values.yaml > values.yaml
+    - helm upgrade --install gitlab-ci-exporter ./chart --timeout 600s --namespace gitlab --values values.yaml
+  only:
+    - master
+  tags:
+    - gke
+    - west1-b
+    - k8s
