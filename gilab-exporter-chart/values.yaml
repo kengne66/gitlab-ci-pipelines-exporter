@@ -129,8 +129,8 @@ config:
   # # Complete configuration syntax reference available here:
   # # https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/master/docs/configuration_syntax.md
   gitlab:
-    url: https://gitlab.example.com
-    token: xrN14n9-ywvAFxxxxxx
+    url: https://gitlab.partybarge.il5.blackpearl.us
+    token: UveGckuJHmAzcVfyYff2
   #   enable_health_check: true
   #   enable_tls_verify: true
   projects:
