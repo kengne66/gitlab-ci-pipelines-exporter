@@ -125,16 +125,16 @@ envVariables:
 
 # config -- configuration of the exporter
 config:
-  {}
+  #{}
   # # Complete configuration syntax reference available here:
   # # https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/master/docs/configuration_syntax.md
-  # gitlab:
-  #   url: https://gitlab.example.com
-  #   token: <your_token>
+  gitlab:
+    url: https://gitlab.example.com
+    token: xrN14n9-ywvAFxxxxxx
   #   enable_health_check: true
   #   enable_tls_verify: true
-  # projects:
-  #   - name: foo/project
+  projects:
+    - name: foo/project
   #   - name: bar/project
   # wildcards:
   #   - owner:
