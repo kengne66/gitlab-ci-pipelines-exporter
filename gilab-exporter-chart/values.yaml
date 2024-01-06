@@ -133,24 +133,24 @@ config:
     token: UveGckuJHmAzcVfyYff2
   #   enable_health_check: true
   #   enable_tls_verify: true
-  #projects:
-  #  - name: foo/project
+  projects:
+    - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/kengne-compliant-example-project
   #   - name: bar/project
-  wildcards:
-    - owner:
-        name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
-        kind: group
-        include_subgroups: true
-      pull:
-        pipeline:
-          jobs:
-            enabled: true
-            aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
-      refs:
-        branches:
-          enabled: true
-          regexp: "^(?:main|master)$"
-          most_recent: 0  
+  # wildcards:
+  #   - owner:
+  #       name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/
+  #       kind: group
+  #       include_subgroups: true
+  #     pull:
+  #       pipeline:
+  #         jobs:
+  #           enabled: true
+  #           aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
+  #     refs:
+  #       branches:
+  #         enabled: true
+  #         regexp: "^(?:main|master)$"
+  #         most_recent: 0  
 
 
 # -- name of a `Secret` containing the GitLab token in the `gitlabToken` field (required unless `config.gitlab.token` is specified)
