@@ -136,13 +136,14 @@ config:
   projects:
     - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/kengne-compliant-example-project
   #   - name: bar/project
-      refs: "*"
+      refs: ".*"
   wildcards:
-    - owner:
-        name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/
-        kind: group
-        include_subgroups: true
-      # pull:
+    - refs: "^main$"
+    # - owner:
+    #     name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/
+    #     kind: group
+    #     include_subgroups: true
+    #   # pull:
       #   pipeline:
       #     jobs:
       #       enabled: true
