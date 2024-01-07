@@ -129,8 +129,8 @@ config:
   # # Complete configuration syntax reference available here:
   # # https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/master/docs/configuration_syntax.md
   gitlab:
-    url: https://gitlab.partybarge.il5.blackpearl.us
-    token: apPuawNs7NpeRnK1YCAz
+    url: https://gitlab.com/
+    token: glpat-hxosyppy31-VygNzMEaY
   #   enable_health_check: true
   #   enable_tls_verify: true
   # projects:
@@ -139,19 +139,19 @@ config:
   #     refs: ".*"
   wildcards:
     - owner:
-        name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/
+        name: testgroup
         kind: group
         include_subgroups: true
-      pull:
-        pipeline:
-          jobs:
-            enabled: true
-            aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
-      refs:
-        branches:
-          enabled: true
-          regexp: "^(?:main|master)$"
-          most_recent: 0  
+      # pull:
+      #   pipeline:
+      #     jobs:
+      #       enabled: true
+      #       aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
+      # refs:
+      #   branches:
+      #     enabled: true
+      #     regexp: "^(?:main|master)$"
+      #     most_recent: 0  
 
 
 # -- name of a `Secret` containing the GitLab token in the `gitlabToken` field (required unless `config.gitlab.token` is specified)
