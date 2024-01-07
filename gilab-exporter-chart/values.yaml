@@ -133,10 +133,10 @@ config:
     token: glpat-hxosyppy31-VygNzMEaY
   #   enable_health_check: true
   #   enable_tls_verify: true
-  # projects:
-  #   - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
-  # #   - name: bar/project
-  #     refs: ".*"
+    projects:
+      - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
+      - name: testgroup/exporter
+        refs: ".*"
   wildcards:
     - owner:
         name: testgroup
