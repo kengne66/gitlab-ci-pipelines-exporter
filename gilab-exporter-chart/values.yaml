@@ -137,21 +137,21 @@ config:
       - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
       - name: testgroup/exporter
         refs: ".*"
-  # wildcards:
-  #   - owner:
-  #       name: testgroup
-  #       kind: group
-  #       include_subgroups: true
-      # pull:
-      #   pipeline:
-      #     jobs:
-      #       enabled: true
-      #       aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
-      # refs:
-      #   branches:
-      #     enabled: true
-      #     regexp: "^(?:main|master)$"
-      #     most_recent: 0  
+  wildcards:
+    - owner:
+        name: testgroup
+        kind: group
+        include_subgroups: true
+      pull:
+        pipeline:
+          jobs:
+            enabled: true
+            #aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
+      refs:
+        branches:
+          enabled: true
+          #regexp: "^(?:main|master)$"
+          most_recent: 0  
 
 
 # -- name of a `Secret` containing the GitLab token in the `gitlabToken` field (required unless `config.gitlab.token` is specified)
