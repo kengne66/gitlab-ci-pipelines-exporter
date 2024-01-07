@@ -130,29 +130,28 @@ config:
   # # https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/master/docs/configuration_syntax.md
   gitlab:
     url: https://gitlab.partybarge.il5.blackpearl.us
-    token: UveGckuJHmAzcVfyYff2
+    token: apPuawNs7NpeRnK1YCAz
   #   enable_health_check: true
   #   enable_tls_verify: true
-  projects:
-    - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/kengne-compliant-example-project
-  #   - name: bar/project
-      refs: ".*"
+  # projects:
+  #   - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
+  # #   - name: bar/project
+  #     refs: ".*"
   wildcards:
-    - refs: "^main$"
-    # - owner:
-    #     name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/
-    #     kind: group
-    #     include_subgroups: true
-    #   # pull:
-      #   pipeline:
-      #     jobs:
-      #       enabled: true
-      #       aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
-      # refs:
-      #   branches:
-      #     enabled: true
-      #     regexp: "^(?:main|master)$"
-      #     most_recent: 0  
+    - owner:
+        name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging/
+        kind: group
+        include_subgroups: true
+      pull:
+        pipeline:
+          jobs:
+            enabled: true
+            aggregation_regexp: shared-runners-manager-(\d*)\.gitlab\.partybarge\.il5\.blackpearl\.us
+      refs:
+        branches:
+          enabled: true
+          regexp: "^(?:main|master)$"
+          most_recent: 0  
 
 
 # -- name of a `Secret` containing the GitLab token in the `gitlabToken` field (required unless `config.gitlab.token` is specified)
