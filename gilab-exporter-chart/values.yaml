@@ -129,7 +129,7 @@ config:
   # # Complete configuration syntax reference available here:
   # # https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/master/docs/configuration_syntax.md
   gitlab:
-    url: https://gitlab.com/
+    url: https://gitlab.com/testgroup1933401
     token: glpat-hxosyppy31-VygNzMEaY
   #   enable_health_check: true
   #   enable_tls_verify: true
@@ -137,11 +137,11 @@ config:
       - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
       - name: testgroup/exporter
         refs: ".*"
-  wildcards:
-    - owner:
-        name: testgroup
-        kind: group
-        include_subgroups: true
+  # wildcards:
+  #   - owner:
+  #       name: testgroup
+  #       kind: group
+  #       include_subgroups: true
       # pull:
       #   pipeline:
       #     jobs:
