@@ -35,7 +35,8 @@ spec:
           image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - /usr/local/bin/gitlab-ci-pipelines-exporter
+            - gitlab-ci-pipelines-exporter
+            - run
           {{- with .Values.args }}
           args: {{ toYaml . | nindent 16 }}
           {{- end }}
