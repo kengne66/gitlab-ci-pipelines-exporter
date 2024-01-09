@@ -129,16 +129,16 @@ config:
   # # Complete configuration syntax reference available here:
   # # https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/master/docs/configuration_syntax.md
   gitlab:
-    url: https://gitlab.com
+    url: https://gitlab.com/pierre.kengne
     token: glpat-hxosyppy31-VygNzMEaY
   #   enable_health_check: true
   #   enable_tls_verify: true
     projects:
-      - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
-      - name: pierre.kengne/myProjectTest1
+    #  - name: forge/dev/enablers/black-ops/forge-compliant-pipelines-staging
+      - name: myProjectTest1
         refs: ".*"
   wildcards:
-    - refs: "*"
+    - refs: '^master$'
     # - owner:
     #     name: testgroup
     #     kind: group
