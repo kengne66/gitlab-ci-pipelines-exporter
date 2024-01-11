@@ -70,8 +70,8 @@ securityContext:
 args:
   - --config
   - /etc/config.yml
-  - --log-format
-  - json
+  #- --log-format
+  #- json
 
 ## Actual configuration of the exporter
 ##
