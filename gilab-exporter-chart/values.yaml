@@ -122,10 +122,10 @@ args:
 envVariables:
   - name: GCPE_INTERNAL_MONITORING_LISTENER_ADDRESS
     value: tcp://127.0.0.1:8082
-  - neme: GCPE_CONFIG
-    vale: /home/gitlab-ci-pipelines-exporter.yml
-  - neme: GCPE_GITLAB_TOKEN
-    value: bppbil2WchTNr1oF7tYMsy5Vahy
+  # - neme: GCPE_CONFIG
+  #   vale: /home/gitlab-ci-pipelines-exporter.yml
+  # - neme: GCPE_GITLAB_TOKEN
+  #   value: bppbil2WchTNr1oF7tYMsy5Vahy
 
 
 
